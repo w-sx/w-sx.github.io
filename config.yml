@@ -1,0 +1,38 @@
+baseURL: https://blog.fogbud.com/
+languageCode: zh
+defaultContentLanguage: zh
+title: 人山的博客
+theme: PaperMod
+hasCJKLanguage: true
+enableRobotsTXT: true
+enableEmoji: true
+enableInlineShortcodes: true
+paginate: 10
+
+
+params:
+  #defaultTheme: auto
+  #disableThemeToggle: true
+  ShowBreadCrumbs: true
+  DateFormat: '2006-01-02'
+  ShowReadingTime: true
+  ShowLastMod: true
+  ShowWordCount: true
+  showToc: true
+  ShowCodeCopyButtons: true
+  # ShowShareButtons: true
+  VisitCount: true
+  comments: true
+  ShowRssButtonInSectionTermList: true
+  editPost:
+    URL: https://github.com/w-sx/w-sx.github.io/edit/src
+    Text: 编辑 # edit text
+    appendFilePath: true # to append file path to Edit link
+  #comments: true
+  ShowPostNavLinks: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
