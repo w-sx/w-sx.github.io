@@ -11,25 +11,61 @@ paginate: 10
 
 
 params:
-  #defaultTheme: auto
+  homeInfoParams:
+    Title: 欢迎来访 👋
+    Content: |
+
+  socialIcons:
+    - name: E-Mail
+      url: mailto:orchid.x@outlook.com
+    - name: QQ
+      url: tencent://message/?uin=327567618&Site=Sambow&Menu=yes
+    - name: github
+      url: https://github.com/w-sx/
+
+  #hideSummary: true
+  defaultTheme: auto
   #disableThemeToggle: true
   ShowBreadCrumbs: true
-  DateFormat: '2006-01-02'
+  DateFormat: 2006-01-02
   ShowReadingTime: true
   ShowLastMod: true
   ShowWordCount: true
   showToc: true
+  #UseHugoToc: true
   ShowCodeCopyButtons: true
-  # ShowShareButtons: true
-  VisitCount: true
+  #ShowShareButtons: true
+  #VisitCount: true
   comments: true
   ShowRssButtonInSectionTermList: true
   editPost:
-    URL: https://github.com/w-sx/w-sx.github.io/edit/src
+    URL: https://github.com/w-sx/w-sx.github.io/edit/src/content
     Text: 编辑 # edit text
     appendFilePath: true # to append file path to Edit link
-  #comments: true
-  ShowPostNavLinks: true
+  #ShowPostNavLinks: true
+
+menu:
+  main:
+    - identifier: home
+      name: 主页 🏠
+      url: /
+      weight: 10
+    - identifier: archives
+      name: 归档 ⌛
+      url: /archives/
+      weight: 10
+    - identifier: articles
+      name: 文章 📖
+      url: /articles/
+      weight: 10
+    - identifier: tags
+      name: 标签 📍
+      url: /tags/
+      weight: 10
+    - identifier: search
+      name: 搜索 🔎
+      url: /search/
+      weight: 20
 
 outputs:
   home:
