@@ -1,4 +1,6 @@
 @echo off
+git pull
+echo.
 git status
 echo.
 echo Will automatically execute the following commands

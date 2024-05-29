@@ -1,4 +1,6 @@
 @echo off
+git pull
+echo.
 setlocal enabledelayedexpansion
 set dir=articles/
 set /a num=0
