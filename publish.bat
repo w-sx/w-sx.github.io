@@ -9,6 +9,7 @@ echo Step 3: git push
 echo.
 set /p action=Do you want to continue(y/n):
 if "%action%"=="y" (
+echo.
 git add --all
 git commit
 git push
