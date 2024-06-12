@@ -1,7 +1,7 @@
-baseURL: https://fogbud.com/
+baseURL: https://www.fogbud.com/
 languageCode: zh
 defaultContentLanguage: zh
-title: 人山的博客
+title: 雾芽
 theme: PaperMod
 hasCJKLanguage: true
 enableRobotsTXT: true
@@ -12,8 +12,8 @@ paginate: 10
 
 params:
   homeInfoParams:
-    Title: 欢迎来访 👋
-    Content: |
+    Title: 行千里，致广大 👋
+#    Content: |
 
   socialIcons:
     - name: E-Mail
