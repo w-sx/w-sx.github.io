@@ -12,8 +12,8 @@ paginate: 10
 
 params:
   homeInfoParams:
-    Title: 行千里，致广大 👋
-#    Content: |
+    Title: 雾芽
+    Content: 行千里，致广大 👋
 
   socialIcons:
     - name: E-Mail
