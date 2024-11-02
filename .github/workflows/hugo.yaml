@@ -1,0 +1,58 @@
+name: Deploy Hugo
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [deploy]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # Prepare job
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get latest run id
+        id: get_id
+        run: |
+          API_URL="https://api.github.com/repos/w-sx/blog-sources/actions/runs"
+          ID=$(curl -s $API_URL -H "Authorization: token ${{ secrets.PAT }}" | jq '.workflow_runs[0].id')
+          echo "id=$ID" >> $GITHUB_OUTPUT
+      - name: download artifacts from other repo
+        id: download
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          github-token: ${{ secrets.PAT }}
+          repository: w-sx/blog-sources
+          run-id: ${{ steps.get_id.outputs.id }}
+#      - name: upload artifacts to this repo
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: github-pages
+#          path: ${{ steps.download.outputs.download-path }}
+#          retention-days: 1
+#          overwrite: true
+#          if-no-files-found: error
+      - name: display name
+        run: echo ${{ steps.get_id.outputs.id }}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
